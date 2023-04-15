@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 public class ListaBasica implements Reproduccion {
+
     @Override
     public void reproduccion() {
     }
@@ -19,16 +20,28 @@ public class ListaBasica implements Reproduccion {
 
     private String nombre;
     private Stack miLista;
-    private ArrayList<Cancion> listaIndividual;
+    private static ArrayList<String> listaIndividual;
 
     public String reproducirCancion(Cancion data){
     return data.toString();
     }
 
-    /*public String aniadirCancion(Cancion cancion){
+    public void ListaReproduccion() {
+        listaIndividual = new ArrayList<>();
+    }
+
+    public void aniadirCancion(String cancion){
+        listaIndividual.add(cancion);
+        System.out.println("Canción agregada a la lista de reproducción: " + cancion);
 
     }
-    */
+
+    public void mostrarLista() {
+        System.out.println("Lista de reproducción:");
+        for (String cancion : listaIndividual) {
+            System.out.println(cancion);
+        }
+    }
 
 }
 
