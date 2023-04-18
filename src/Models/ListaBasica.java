@@ -1,48 +1,51 @@
 package Models;
-
-import java.util.ArrayList;
 import java.util.Stack;
 
-public class ListaBasica implements Reproduccion {
-
+public class ListaBasica extends ListaReproduccion {
+    private Stack<Cancion> miLista;
+    public ListaBasica() {
+        this.miLista = new Stack<Cancion>();
+    }
+    public ListaBasica(String nombre, Stack<Cancion> miLista) {
+        super(nombre);
+        this.miLista = miLista;
+    }
+    public Stack getMiLista() {
+        return miLista;
+    }
+    public void setMiLista(Stack<Cancion> miLista) {
+        this.miLista = miLista;
+    }
     @Override
     public void reproduccion() {
+        Cancion cancion = miLista.pop();
+        Stack<Cancion> aux = new Stack();
+
+        for (Cancion cancionAux : miLista) {
+            aux.push(cancionAux);
+        }
+        aux.push(cancion);
+        miLista = aux;
+
+        System.out.println("Reproduciendo : " + cancion.toString());
+    }
+
+    @Override
+    public void aniadir(Cancion cancion) {
+        this.miLista.push(cancion);
     }
     @Override
-    public void aniadir() {
-    }
-    @Override
-    public void eliminar() {
+    public void eliminar(Cancion cancion) {
+        System.out.println("Para acceder a esta opcion, compre el paquete PREMIUM.");
     }
     @Override
     public void verMiLista() {
-    }
-
-    private String nombre;
-    private Stack miLista;
-    private static ArrayList<String> listaIndividual;
-
-    public String reproducirCancion(Cancion data){
-    return data.toString();
-    }
-
-    public void ListaReproduccion() {
-        listaIndividual = new ArrayList<>();
-    }
-
-    public void aniadirCancion(String cancion){
-        listaIndividual.add(cancion);
-        System.out.println("Canción agregada a la lista de reproducción: " + cancion);
-
-    }
-
-    public void mostrarLista() {
-        System.out.println("Lista de reproducción:");
-        for (String cancion : listaIndividual) {
-            System.out.println(cancion);
+        System.out.println(this.getNombre());
+        int cont = 0;
+        for (Cancion cancionAux : miLista) {
+            System.out.println(cont + ":" + cancionAux.toString());
         }
     }
-
 }
 
 /*

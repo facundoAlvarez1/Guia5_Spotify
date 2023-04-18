@@ -1,3 +1,5 @@
+package Models;
+
 public enum Genero {
         ROCK("ROCK"), TRAP("TRAP"), JAZZ("JAZZ"),HIPHOP("HIPHOP"),POP("POP"),METAL("METAL"),CLASICA("METAL");
 
