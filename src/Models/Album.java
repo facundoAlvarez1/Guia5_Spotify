@@ -13,6 +13,7 @@ public class Album {
         this.artista = artista;
     }
 
+
     public Album() {
     }
     public String getNombre() {

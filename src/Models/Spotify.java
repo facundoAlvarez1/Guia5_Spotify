@@ -1,5 +1,4 @@
 package Models;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -14,17 +13,17 @@ public class Spotify {
         this.miScanner = new Scanner(System.in);
     }
     public void menuCanciones() {
-        int respuesta = 0;
+        int op= 0;
         do {
             System.out.println("-----------------------------------");
             System.out.println("Elija una opcion (0 para volver)");
-
             System.out.println("1- Reproducir lista");
             System.out.println("2- Ver mi lista");
             System.out.println("3- Añadir Canción");
             System.out.println("4- Eliminar Canción");
 
-            switch (respuesta){
+            op = miScanner.nextInt();
+            switch (op){
                 case 1:
                     reproducir();
                     break;
@@ -43,10 +42,10 @@ public class Spotify {
                     System.out.println("Parametro no valido, reintente");
                     break;
             }
-        } while (respuesta != 0);
+        } while(op !=0);
     }
 
-    public void reproducir() {
+    public void reproducir(){
         String pausa;
         miLista.reproduccion();
         System.out.println("Presione p para pausar y regresar al menu");
